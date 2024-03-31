@@ -1,13 +1,22 @@
 <html>
   <head>
     <title>reCAPTCHA demo: Simple page</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf_haopAAAAAA5ooh0fltHv4xxwtVO-Tn5AcxLX" async defer></script>
   </head>
-  <body>
-    <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+
+  <button class="g-recaptcha"
+    data-sitekey="6Lf_haopAAAAAA5ooh0fltHv4xxwtVO-Tn5AcxLX"
+    data-callback='onSubmit'
+    data-action='submit'>
+    Submit
+</button>
 </html>
+
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6Lf_haopAAAAAA5ooh0fltHv4xxwtVO-Tn5AcxLX', {action: 'LOGIN'});
+    });
+  }
+</script>

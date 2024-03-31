@@ -53,7 +53,7 @@ def index():
 @app.route('/hw-design')
 
 def hwdesign():
-    return render_template("hw-design.html",            
+    return render_template("WIP.html",            
         services = services(),
         serviceLen = len(serviceLen["url"]),
         hdrs = hdrs
@@ -61,7 +61,7 @@ def hwdesign():
 
 @app.route('/sw-design')
 def swdesign():
-    return render_template("sw-design.html",            
+    return render_template("WIP.html",            
         services = services(),
         serviceLen = len(serviceLen["url"]),
         hdrs = hdrs
@@ -69,7 +69,7 @@ def swdesign():
 
 @app.route('/management')
 def management():
-    return render_template("management.html",            
+    return render_template("WIP.html",            
         services = services(),
         serviceLen = len(serviceLen["url"]),
         hdrs = hdrs
