@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div id="header">
+        <div class="container">
+            <div class="header-text">
+                <p>Electronics Engineer</p>
+                <h1>Hi, I'm <span>Rene</span><br>Brandbyge</h1>
+            </div>
+        </div>
+    </div>
+    <!-- About section -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="../staticFiles/Images/ID.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">{{ hdrs[0] }}</h1>
+                    <p>
+                        {% for idx in summary %}
+                        {{ idx }}
+                        {% endfor %}
+                    </p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('AwardsnHonours')">Awards and Honours</p>
+                    </div>
+                    
+                    <div class="tab-contents active-tab" id="experience">
+                        <ul>
+                            {% for i in range(0, 3) %}
+                                <li><span>{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
+                                    <i>{{ comp[i]["jobtitle"] }}</i>
+                                    <br>
+                                    {{ comp[i]["txt"] }}
+                                </li>
+                            {% endfor %}
+                            <div id="compSL" style="display: none;">
+                                {% for i in range(3, compLen) %}
+                                    <li><span>{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
+                                        <i>{{ comp[i]["jobtitle"] }}</i>
+                                        <br>
+                                        {{ comp[i]["txt"] }}
+                                    </li>
+                                {% endfor %}
+                                <span>
+                                    <button onclick="seeLessfunc('compSM', 'compSL')">See less...</button>
+                                </span>
+                            </div>
+                            <div id="compSM" style="display: show;">
+                                <li>
+                                    <span>
+                                        <button onclick="seeMorefunc('compSM', 'compSL')">See more...</button>
+                                    </span>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="skills">
+                        <ul>
+                            {% for i in range(0, 5) %}
+                                <li><span>{{ intro["skills"][i] }}</span><br>{{ intro["skilldesc"][i] }}</li>
+                            {% endfor %}
+                            <div id="skillSL" style="display: none;">
+                                {% for i in range(5, skillsLen) %}
+                                    <li><span>{{ intro["skills"][i] }}</span><br>{{ intro["skilldesc"][i] }}</li>
+                                {% endfor %}
+                                <span>
+                                    <button onclick="seeLessfunc('skillSM', 'skillSL')">See less...</button>
+                                </span>
+                            </div>
+                            <div id="skillSM" style="display: show;">
+                                <li>
+                                    <span>
+                                        <button onclick="seeMorefunc('skillSM', 'skillSL')">See more...</button>
+                                    </span>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            {% for i in range(0, 2) %}
+                                <li><span>{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
+                                    <i>{{ edu[i]["title"] }}</i>
+                                    <br>
+                                    {{ edu[i]["txt"] }}
+                                </li>
+                            {% endfor %}
+                            <div id="eduSL" style="display: none;">
+                                {% for i in range(2, eduLen) %}
+                                    <li><span>{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
+                                        <i>{{ edu[i]["title"] }}</i>
+                                        <br>
+                                        {{ edu[i]["txt"] }}
+                                    </li>
+                                {% endfor %}
+                                <span>
+                                    <button onclick="seeLessfunc('eduSM', 'eduSL')">See less...</button>
+                                </span>
+                            </div>
+                            <div id="eduSM" style="display: show;">
+                                <li>
+                                    <span>
+                                        <button onclick="seeMorefunc('eduSM', 'eduSL')">See more...</button>
+                                    </span>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="AwardsnHonours">
+                        <ul>
+                            <li><span>{{ otg["mmyy"] }}, {{ otg["school"] }}</span><br>
+                                <i>{{ otg["title"] }}</i>
+                                <br>
+                                {{ otg["txt"] }}</li>
+                            <li><span>{{ tic["mmyy"] }}, {{ tic["school"] }}</span><br>
+                                <i>{{ tic["title"] }}</i>
+                                <br>
+                                {{ tic["txt"] }}</li>
+                            <li><span>{{ dtu["mmyy"] }}, {{ dtu["school"] }}</span><br>
+                                <i>{{ dtu["title"] }}</i>
+                                <br>
+                                {{ dtu["txt"] }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">{{ hdrs[1] }}</h1>
+            <div class="services-list">               
+                {% for i in range(0, serviceLen) %}
+                    <div>
+                        <img src="{{services['url'][i]}}">
+                        <h2>{{services["head"][i]}}</h2>
+                        <p>{{services["desc"][i]}}</p>
+                        <a href="{{url_for(services['link'][i])}}">Learn more</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Projects -->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title"> {{ hdrs[2] }} </h1>
+            <div class="work-list">
+                {% for i in range(0, project_len) %}
+                    <div class="work">
+                        <img src="{{project['url'][i]}}">
+                        <div class="layer">
+                            <h3>{{project["head"][i]}}</h3>
+                            <p>{{project["desc"][i]}}</p>
+                            <a href="{{url_for(project['link'][i])}}"><img src="../staticFiles/Images/Icons/link_white_24dp.svg"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </div>
+
+    
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        
+        function opentab(tabname){
+
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+            
+            seeLessfunc('compSM', 'compSL');
+            seeLessfunc('skillSM', 'skillSL');
+            seeLessfunc('eduSM', 'eduSL');
+                        
+        }
+    </script>
+
+    <script>
+
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+
+    </script>
+
+    <script>
+        function seeMorefunc(SeeMore, SeeLess){
+            var containerSL = document.getElementById(SeeLess);
+            var containersSM = document.getElementById(SeeMore);
+
+            containerSL.style = "display: block;"
+            containersSM.style = "display: none;"            
+        }
+        function seeLessfunc(SeeMore, SeeLess){
+            var containerSL = document.getElementById(SeeLess);
+            var containersSM = document.getElementById(SeeMore);
+
+            containerSL.style = "display: none;"
+            containersSM.style = "display: block;"
+        }
+    </script>
+
+{% endblock %}

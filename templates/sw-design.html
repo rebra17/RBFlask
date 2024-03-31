@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="blank">   
+    <div class="container"></div>        
+</div>
+
+<div class="container">
+    <h1>SW-Design</h1>
+</div>
+
+<div class="container">
+    <p>
+        C, C++, Java...
+    </p>
+</div>
+
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">{{ hdrs[1] }}</h1>
+        <div class="services-list">               
+            {% for i in range(0, serviceLen) %}
+                <div>
+                    <img src="{{services['url'][i]}}">
+                    <h2>{{services["head"][i]}}</h2>
+                    <p>{{services["desc"][i]}}</p>
+                    <a href="{{url_for(services['link'][i])}}">Learn more</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

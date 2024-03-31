@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="blank">   
+    <div class="container"></div>        
+</div>
+
+ <!-- Msc Thesis section -->
+ <div id="project">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="../staticFiles/Images/projects/mscthesisNobg.png">
+            </div>
+            <div class="about-col-2">
+                <h2 class="subsub-title">Space Grade Bidirectional Converter for Regeneration of Energy</h2>                
+                <p>
+                    During this project, the optimal topology for the application is determined and a solution
+                    for the energy storage system is determined. The proposed topology is a Dual Active Bridge
+                    converter, and the proposed energy solution consists of a supercapacitor bank with high current
+                    capabilities and energy density. The proposed energy solution can quickly be charged and
+                    discharged, which fits the application well. 
+                </p><br>
+                <p>
+                    A Dual Active Bridge converter rated for 1kW output
+                    power is designed with reliability in mind. The inductor is integrated into the transformer by
+                    designing the transformer with a large leakage inductance. An analogue peak-current mode
+                    controller is designed and implemented for inherent over-current protection. The controller is
+                    capable of operating in both directions of power-flow as well as controlling the direction of
+                    power-flow. A discrete logic circuitry is proposed for controlling the converter state as well as
+                    detecting faults and deactivating the system.
+                </p>                
+            </div>
+            <div class="process-list">
+                <div class="process">
+                    <img src="../staticFiles/Images/projects/MscBlock.png">
+                </div>
+                <div class="process">
+                    <img src="../staticFiles/Images/projects/DABconverter.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">{{ hdrs[2] }}</h1>
+        <div class="work-list">
+            {% for i in range(0, project_len) %}
+                <div class="work">
+                    <img src="{{project['url'][i]}}">
+                    <div class="layer">
+                        <h3>{{ project["head"][i] }}</h3>
+                        <p>{{project["desc"][i]}}</p>
+                        <a href="{{url_for(project['link'][i])}}"><img src="../staticFiles/Images/Icons/link_white_24dp.svg"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+{% endblock %}

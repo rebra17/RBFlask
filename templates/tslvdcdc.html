@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="blank">   
+    <div class="container"></div>        
+</div>
+
+ <!-- TSLV DCDC section -->
+ <div id="project">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="../staticFiles/Images/projects/TS_LV_DCDC.png">
+            </div>
+            <div class="about-col-2">
+                <h2 class="subsub-title">TS to LV DCDC</h2>
+                <p>
+                    During this project, a HV (588V) to LV (24V) isolated DCDC converter was designed. The project carried out over 4 months (1 semester).
+                </p><br>
+                <p>
+                    The primary and secondary-side topologies has been chosen to Full-bridge (FB)-FB with SiliconCarbide (SiC) 
+                    and Gallium-Nitride (GaN)- technology on each respectively, based on the power
+                    losses and transformer utilisation. 
+                </p><br>
+                <p>
+                    Transformer and inductor have been designed as planar, in
+                    order to minimise the height of the final PCB. Filters, snubber-circuit and other protection has
+                    been implemented to ensure the reliability of the converter and the peak-efficiency is derived
+                    to 96.03% at nominal voltage and a switching frequency of 200kHz. The final Printed Circuit
+                    Board (PCB) has been designed and a power density has been found at 0.8638kW L−1, which is
+                    low, mainly due to the low power output.
+                </p>                
+            </div>
+            <div class="process-list">
+                <div class="process">
+                    <img src="../staticFiles/Images/projects/TSLVDCDCBlockDiagram.png">
+                </div>
+                <div class="process">
+                    <img src="../staticFiles/Images/projects/TSLVDCDCDiagram.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">{{ hdrs[2] }}</h1>
+        <div class="work-list">
+            {% for i in range(0, project_len) %}
+                <div class="work">
+                    <img src="{{project['url'][i]}}">
+                    <div class="layer">
+                        <h3>{{ project["head"][i] }}</h3>
+                        <p>{{project["desc"][i]}}</p>
+                        <a href="{{url_for(project['link'][i])}}"><img src="../staticFiles/Images/Icons/link_white_24dp.svg"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+{% endblock %}
