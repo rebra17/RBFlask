@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Personal Portfolio Website</title>
+        <title>Rene Bloch Brandbyge</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='../staticFiles/style.css') }}">
     </head>
     <body>
@@ -18,7 +18,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact">Contact Form</a></li>
                 </ul>
                 <img class="openmenu" src="../staticFiles/Images/Icons/menu_white_24dp.svg" onclick="openmenu()">
             </div>
@@ -28,32 +28,39 @@
         {% block content %}
         {% endblock %}
 
-
-        <!-- Contact -->
         <div id="contact">
             <div class="container">
+                <h1 class="sub-title">Contact Me</h1>
+                    <br>
+                    <p>If you are interested to know more, do not hesitate to contact me via the contact form, visit my LinkedIn or download my latest resume.</p>
+                    <br>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/rene-bloch-brandbyge/" target="_blank"><img src="../staticFiles/Images/Icons/linkedin.svg"></a>
+                    </div>
                 <div class="row">
-                    <div class="contact-left">
-                        <h1 class="sub-title">Contact Me</h1>
-                        <p><img src="../staticFiles/Images/Icons/send_white_24dp.svg"><a href="mailto:ReneBloch@brandbyge.com">ReneBloch@brandbyge.com</a></p>
+                    <div class="contact-left">                        
+                        <!-- <p><img src="../staticFiles/Images/Icons/send_white_24dp.svg"><a href="mailto:ReneBloch@brandbyge.com">ReneBloch@brandbyge.com</a></p>
                         <p> <img src="../staticFiles/Images/Icons/call_white_24dp.svg"><a href="tel:+447466699422">+44 74 6669 9422</a></p>
                         <div class="social-icons">
                             <a href="https://www.linkedin.com/in/rene-bloch-brandbyge/" target="_blank"><img src="../staticFiles/Images/Icons/linkedin.svg"></a>
-                        </div>
-                        <a href="../staticFiles/2023.05-CV_RBB.pdf" download="2023.05-CV_RBB" class="btn btn2">Download CV</a>
+                        </div>                         
+                        <button type="submit" class="btn btn2"><a href="contact">To contact form</a></button>-->
+                        <a href="contact" class="btn btn2">Contact Form</a>
                     </div>
-                    <div class="contact-right">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
+                        <div class="contact-right">
+                            <!-- <input type="text" name="Name" placeholder="Your name" required>
+                            <input type="email" name="Email" placeholder="Your email" required>
+                            <input type="text" name="Subject" placeholder="Subject" required>
+                            <textarea name="Message" rows="6" placeholder="Your message..."></textarea> -->
+                        <a href="../staticFiles/2023.05-CV_RBB.pdf" download="2023.05-CV_RBB" class="btn btn2">Download CV</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>Copyright © Rene Brandbyge</p>
+                <p> Website design by Rene Bloch Brandbyge</p>
             </div>
-        </div>
+        </div> -->
 
 
 

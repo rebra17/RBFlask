@@ -333,14 +333,21 @@ nav ul li a:hover::after{
 }
 
 /* Contact */
+
 .contact-left{
-    flex-basis: 35%;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-right{
-    flex-basis: 60%;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+/* 
 .contact-left p{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -349,7 +356,7 @@ nav ul li a:hover::after{
 .contact-left p img{
     margin-right: 15px;
     height: 25px;
-}
+} 
 
 .contact-left p a{
     text-decoration: none;
@@ -368,7 +375,7 @@ nav ul li a:hover::after{
 .contact-left p a:hover{
     color: #008c0e;
     transform: translateY(-5px);
-}
+}*/
 
 .social-icons img{
     height: 30px;
@@ -384,11 +391,25 @@ nav ul li a:hover::after{
 }
 
 .btn.btn2{
-    display: inline-block;
-    background: #008c0e;
+    border:1px solid #008c0e; 
+    background-color: #080808;
     margin-top: 20px;
 }
+.btn.btn2 a{
+    text-decoration: none;
+    color: #fff;
+}
 
+.btn.btn2:hover{
+    cursor: pointer;
+    border:1px solid #008c0e; 
+    background-color: #008c0e;
+    color: #fff;
+    transition: 0.5s;
+    transform: translateY(-5px);
+}
+
+/* 
 .contact-right form{
     width: 100%;
 }
@@ -403,7 +424,93 @@ nav ul li a:hover::after{
     color: #fff;
     font-size: 18px;
     border-radius: 6px;
+}  */
+
+/* ContactForm */
+.submission-msg {
+    margin-top: 100px;
 }
+.submission-msg p{
+    font-size: 25px;
+    text-align: center;
+}
+
+.submission-msg img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form label {
+    font-size: 17px;
+    font-weight: bold;
+    display: block;
+    padding: 10px 0;
+  }
+
+  form input#name,
+  form input#email,
+  form input#subject {
+    width: 60%;
+    background-color: #262626;
+    color: #fff;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    /* border: 1px solid #262626; */
+    padding: 5px;
+    font-size: 1.1em;    
+    border: 0;
+    outline: none;
+  }
+
+  form textarea#message {
+    width: 99%;
+    height: 100px;
+    background-color: #262626;
+    color: #fff;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    /* border: 1px solid #262626; */
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.1em;    
+    border: 0;
+    outline: none;
+    resize: vertical;
+  }
+
+  form input#submit {
+    /* display: block;
+    -webkit-border-radius: 3px; 
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    border:1px solid #262626;
+    padding: 10px; 
+    font-weight:bold; 
+    text-align: center; 
+    color: #262626; 
+    background-color: #008c0e; */
+    background-color: #080808;
+    color: #fff;
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #008c0e;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  form input#submit:hover{
+    cursor: pointer;
+    border:1px solid #008c0e; 
+    background-color: #008c0e;
+    color: #fff;
+    transition: 0.5s;
+    transform: translateY(-5px);
+  }
 
 form .btn2{
     padding: 14px 60px;
@@ -411,6 +518,13 @@ form .btn2{
     margin-top: 20px;
     cursor: pointer;
 }
+
+/* Message flashing */
+/* .flash {
+    background-color: #008c0e;
+    padding: 10px;
+    width: 400px;
+  } */
 
 .copyright{
     width: 100%;

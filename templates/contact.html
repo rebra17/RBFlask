@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="blank">   
+    <div class="container"></div>        
+</div>
+
+
+<div id="contactForm">
+    <div class="container">
+        <br>
+            <h1 class="sub-title"> Contact Form </h1>
+        <br>
+        {% if success %}
+            <div class="submission-msg">
+                <p>
+                    Thank you for your message!
+                </p>
+                <br>
+                <p>
+                    I will get back to you as soon as possible!
+                </p>
+                <br>
+                <img src="../staticFiles/Images/Icons/pending_actions_white_48dp.svg">
+            </div>        
+        {% else %}
+        {% for message in form.name.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.email.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.subject.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.message.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+            <form action="{{ url_for('contact') }}" method=post>
+                {{ form.hidden_tag() }}
+                {{ form.name.label }}
+                {{ form.name }}
+                {{ form.email.label }}
+                {{ form.email }}
+                {{ form.subject.label }}
+                {{ form.subject }}
+                {{ form.message.label }}
+                {{ form.message }}
+                {{ form.submit }}
+            </form>
+        {% endif %}
+        <br>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, render_template, redirect, url_for
+from scripts.forms import ContactForm
+from flask_mail import Mail, Message
+
 
 from scripts.intro import intro, summary
 from scripts.profExp import flugger, bilka, siemens, cie, newtec, hpp
@@ -20,10 +23,23 @@ hdrs = ["About Me", "My Services", "My Projects"]
 # Create a Flask Instance
 app = Flask(__name__, static_folder='staticFiles')
 
+app.secret_key = 'GVGCy8Fxl*l4F}9y,}3mX^eUdLZqow19024'
+
+mail = Mail()
+app.config["MAIL_SERVER"] = 'smtp.ionos.co.uk'
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_USERNAME"] = 'contact@brandbyge.com'
+app.config["MAIL_PASSWORD"] = 'ujF6)bvAw]5K}W7B2v8'
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USE_SSP"] = False
+
+mail.init_app(app)
+
 
 # Create a route decorator
 @app.route('/')
 def index():
+
     return render_template("index.html",
         intro = intro(),
         summary = summary(),
@@ -42,12 +58,6 @@ def index():
         hdrs = hdrs
         )
 
-# USER TEST
-# localhost:5000/user/Rene
-#@app.route('/user/<name>')
-
-#def user(name):
-#    return render_template("user.html",user_name=name)
 
 # Services html route
 @app.route('/hw-design')
@@ -105,6 +115,37 @@ def tslvdcdc():
 @app.route('/ImNoRobot')
 def ImNoRobot():
     return render_template("recaptcha.html")
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+  success=False
+  form = ContactForm()
+  if request.method == 'POST':
+    if form.validate() == False:
+      flash('All fields are required.')
+      return render_template('contact.html', form=form)
+    
+    else:
+        # name = form.name.data
+        # email = form.email.data
+        # message = form.message.data
+        # return name, message
+        msg = Message(form.subject.data, sender='contact@brandbyge.com', recipients=['rene.bloch@brandbyge.com'])
+        msg.body = """From
+%s\n
+Email
+%s\n
+Message
+%s 
+            """ % (form.name.data, form.email.data, form.message.data)
+        # print('msg made')
+        mail.send(msg)
+        # print('email send')
+        return render_template('contact.html',success=True)
+    
+  elif request.method == 'GET':
+    return render_template('contact.html', form=form)
 
 if __name__ == '__main__':
     app.run(debug=False,host='0.0.0.0')
