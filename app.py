@@ -2,7 +2,10 @@ from flask import Flask, render_template, request, flash, redirect, url_for, abo
 from scripts.forms import ContactForm
 from flask_mail import Mail, Message
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
+import os
 import requests
 
 
@@ -42,7 +45,7 @@ VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
 mail = Mail()
 app.config["MAIL_SERVER"] = 'smtp.ionos.co.uk'
 app.config["MAIL_PORT"] = 587
-app.config["MAIL_USERNAME"] = 'contact@brandbyge.com'
+app.config["MAIL_USERNAME"] = os.environv("CONTACT_EMAIL")
 app.config["MAIL_PASSWORD"] = 'ujF6)bvAw]5K}W7B2v8'
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSP"] = False
