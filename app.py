@@ -8,7 +8,6 @@ load_dotenv()
 import os
 import requests
 
-
 from scripts.intro import intro, summary
 from scripts.profExp import flugger, bilka, siemens, cie, newtec, hpp
 from scripts.edu import msc, bscSDU, bscSU
