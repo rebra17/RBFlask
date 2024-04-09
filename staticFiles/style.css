@@ -351,35 +351,6 @@ nav ul li a:hover::after{
     justify-content: center;
     align-items: center;
 }
-/* 
-.contact-left p{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.contact-left p img{
-    margin-right: 15px;
-    height: 25px;
-} 
-
-.contact-left p a{
-    text-decoration: none;
-    color: #fff;
-}
-
-.contact-left p{
-    transition: transform 0.5s;
-}
-
-.contact-left p:hover{
-    color: #008c0e;
-    transform: translateY(-5px);
-}
-
-.contact-left p a:hover{
-    color: #008c0e;
-    transform: translateY(-5px);
-}*/
 
 .social-icons img{
     height: 30px;
