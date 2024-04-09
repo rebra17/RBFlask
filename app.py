@@ -169,7 +169,7 @@ def contact():
         msg = Message(
             subject='New Contact Form Received',
             html=html,
-            sender=('contact@brandbyge.com', app.config['MAIL_USERNAME']),
+            sender=(app.config['MAIL_USERNAME']),
             # pass recipients as a list (best to use env variables to not disclose email addresses here)
             recipients=[app.config["MAIL_RECIPENT"]]
         )
