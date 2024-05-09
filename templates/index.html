@@ -9,6 +9,7 @@
             </div>
         </div>
     </div>
+ 
     <!-- About section -->
     <div id="about">
         <div class="container">
@@ -34,7 +35,7 @@
                     <div class="tab-contents active-tab" id="experience">
                         <ul>
                             {% for i in range(0, 3) %}
-                                <li><span>{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
+                                <li><span class="tab-subtitle">{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
                                     <i>{{ comp[i]["jobtitle"] }}</i>
                                     <br>
                                     {{ comp[i]["txt"] }}
@@ -42,7 +43,7 @@
                             {% endfor %}
                             <div id="compSL" style="display: none;">
                                 {% for i in range(3, compLen) %}
-                                    <li><span>{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
+                                    <li><span class="tab-subtitle">{{ comp[i]["mmyy"] }}, {{ comp[i]["company"] }}</span><br>
                                         <i>{{ comp[i]["jobtitle"] }}</i>
                                         <br>
                                         {{ comp[i]["txt"] }}
@@ -64,11 +65,37 @@
                     <div class="tab-contents" id="skills">
                         <ul>
                             {% for i in range(0, 5) %}
-                                <li><span>{{ intro["skills"][i] }}</span><br>{{ intro["skilldesc"][i] }}</li>
+                                <li>
+                                    <div class="float-container">
+                                        <div class="float-child-left">
+                                        <span class="skillrating" style='width:{{ intro["skillrating"][i] }}'></span>
+                                        <img src="../staticFiles/Images/Icons/skill_level.svg" >
+                                        </div>
+
+                                        <div class="float-child-right">
+                                            <span class="tab-subtitle">{{ intro["skills"][i] }}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <br>
+                                    {{ intro["skilldesc"][i] }}</li>
                             {% endfor %}
                             <div id="skillSL" style="display: none;">
                                 {% for i in range(5, skillsLen) %}
-                                    <li><span>{{ intro["skills"][i] }}</span><br>{{ intro["skilldesc"][i] }}</li>
+                                <li>
+                                    <div class="float-container">
+                                        <div class="float-child-left">
+                                        <span class="skillrating" style='width:{{ intro["skillrating"][i] }}'></span>
+                                        <img src="../staticFiles/Images/Icons/skill_level.svg" >
+                                        </div>
+
+                                        <div class="float-child-right">
+                                            <span class="tab-subtitle">{{ intro["skills"][i] }}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <br>
+                                    {{ intro["skilldesc"][i] }}</li>
                                 {% endfor %}
                                 <span>
                                     <button onclick="seeLessfunc('skillSM', 'skillSL')">See less...</button>
@@ -86,7 +113,7 @@
                     <div class="tab-contents" id="education">
                         <ul>
                             {% for i in range(0, 2) %}
-                                <li><span>{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
+                                <li><span class="tab-subtitle">{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
                                     <i>{{ edu[i]["title"] }}</i>
                                     <br>
                                     {{ edu[i]["txt"] }}
@@ -94,7 +121,7 @@
                             {% endfor %}
                             <div id="eduSL" style="display: none;">
                                 {% for i in range(2, eduLen) %}
-                                    <li><span>{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
+                                    <li><span class="tab-subtitle">{{ edu[i]["mmyy"] }}, {{ edu[i]["school"] }}</span><br>
                                         <i>{{ edu[i]["title"] }}</i>
                                         <br>
                                         {{ edu[i]["txt"] }}
@@ -115,15 +142,15 @@
                     </div>
                     <div class="tab-contents" id="AwardsnHonours">
                         <ul>
-                            <li><span>{{ otg["mmyy"] }}, {{ otg["school"] }}</span><br>
+                            <li><span class="tab-subtitle">{{ otg["mmyy"] }}, {{ otg["school"] }}</span><br>
                                 <i>{{ otg["title"] }}</i>
                                 <br>
                                 {{ otg["txt"] }}</li>
-                            <li><span>{{ tic["mmyy"] }}, {{ tic["school"] }}</span><br>
+                            <li><span class="tab-subtitle">{{ tic["mmyy"] }}, {{ tic["school"] }}</span><br>
                                 <i>{{ tic["title"] }}</i>
                                 <br>
                                 {{ tic["txt"] }}</li>
-                            <li><span>{{ dtu["mmyy"] }}, {{ dtu["school"] }}</span><br>
+                            <li><span class="tab-subtitle">{{ dtu["mmyy"] }}, {{ dtu["school"] }}</span><br>
                                 <i>{{ dtu["title"] }}</i>
                                 <br>
                                 {{ dtu["txt"] }}</li>

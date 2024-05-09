@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, abort
+from flask import Flask, render_template, request, abort
 from scripts.forms import ContactForm
 from flask_mail import Mail, Message
 from datetime import datetime
@@ -69,7 +69,7 @@ def index():
 # Services html route
 @app.route('/hw-design')
 def hwdesign():
-    return render_template("WIP.html",            
+    return render_template("hw-design.html",            
         services = services(),
         serviceLen = len(serviceLen["url"]),
         hdrs = hdrs
