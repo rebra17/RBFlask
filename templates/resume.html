@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="blank">   
+    <div class="container"></div>        
+</div>
+
+<div class="resume-container">
+    <div class="header">
+        <h1>Electronics Engineer</h1>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> email@example.com</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> City, Country</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <p>Innovative Electronics Engineer with expertise in circuit design, PCB layout, and embedded systems development. Strong background in power electronics and signal processing.</p>
+    </div>
+
+    <div class="section">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>Senior Electronics Engineer</h3>
+            <p class="company">Company Name | 2020 - Present</p>
+            <ul>
+                <li>Led development of high-efficiency power conversion systems</li>
+                <li>Designed and implemented embedded control systems</li>
+                <li>Managed PCB design and production processes</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Master of Science in Electronics Engineering</h3>
+            <p>University Name | 2018</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">PCB Design</div>
+            <div class="skill">Circuit Analysis</div>
+            <div class="skill">Embedded Systems</div>
+            <div class="skill">Power Electronics</div>
+            <div class="skill">Signal Processing</div>
+            <div class="skill">MATLAB</div>
+        </div>
+    </div>
+</div>
+
+<div class="download-section">
+    <a href="{{ url_for('download_resume') }}" class="btn btn-download">Download Resume PDF</a>
+</div>
+
+<style>
+    .resume-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        box-shadow: 0 0 20px rgba(8, 8, 8, 0.42);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid #008c0e;
+        padding-bottom: 1rem;
+    }
+
+    .header h1 {
+        color: #00730c;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        color: #0808086c;
+    }
+
+    .section {
+        margin: 2rem 0;
+    }
+
+    .section h2 {
+        color: #008c0e;
+        border-bottom: 2px solid #00730c;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .experience-item, .education-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .experience-item h3, .education-item h3 {
+        color: #00730c;
+        margin-bottom: 0.5rem;
+    }
+
+    .company {
+        color: #0808086c;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill {
+        background: #008c0e;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: disc;
+        margin-left: 2rem;
+        color: #0808086c;
+    }
+
+    .download-section {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .btn-download {
+        background-color: #008c0e;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .btn-download:hover {
+        background-color: #00730c;
+    }
+</style>
+
+{% endblock %}
+
